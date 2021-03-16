@@ -14,7 +14,7 @@ class SellsMigration extends Migration
     public function up()
     {
         Schema::create('sells', function (Blueprint $table) {
-            $table->increments('id_sell');
+            $table->increments('id');
             $table->integer('id_clients')->unsigned();
             $table->double('total');
             $table->integer('status');

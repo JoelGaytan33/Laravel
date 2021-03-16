@@ -14,7 +14,7 @@ class SellitemsMigration extends Migration
     public function up()
     {
         Schema::create('sell_items', function (Blueprint $table) {
-            $table->increments('id_sell');
+            $table->increments('id');
             $table->integer('id_product')->unsigned();
             $table->double('price');
             $table->integer('quantity');
