@@ -13,7 +13,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+<<<<<<< HEAD
+Route::get('/', function () {return view('breakpoint');});
+=======
 Route::get('/', function () {return view('index');});
+>>>>>>> parent of 315b72d (practica)
 Route::get('/producto/{id}/{nombre}', function ($id, $nombre) {
 
     return view('verproducto')->with('id',$id);
