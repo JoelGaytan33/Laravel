@@ -13,15 +13,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-<<<<<<< HEAD
-Route::get('/', function () {return view('breakpoint');});
-=======
 Route::get('/', function () {return view('index');});
->>>>>>> parent of 315b72d (practica)
 Route::get('/producto/{id}/{nombre}', function ($id, $nombre) {
-
     return view('verproducto')->with('id',$id);
 });
+
 Route::get('/contacto',
 function(){
     $contacto="Joel";
@@ -31,4 +27,13 @@ function(){
     ->with('nombre',$contacto)
     ->with('fondo',$color)
     ->with('valores',$valores);;
+});
+
+Route::group(['prefix'=>'admin','as'=>'admin.'], function(){ 
+    Route::get('/admin', function () {return view('admin.index');});
+    Route::get('/usuarios', [App\Http\Controllers\Admin\UsuariosController::class,'index']);
+    Route::get('/productos',[App\Http\Controllers\Admin\ProductosController::class,'index']);
+
+    Route::resource('productos',App\Http\Controllers\Admin\ProductosController::class);
+    Route::resource('usuarios',App\Http\Controllers\Admin\UsuariosController::class);
 });
